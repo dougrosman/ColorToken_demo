@@ -1,7 +1,37 @@
-# ColorToken_demo
-ColorToken_Demo
+# Color Token Demo
+
+This repository contains the code, as well as relevant links for getting your own ERC721 Token up and running.
+
+The Tutorial videos are below, and can also be found on Canvas.
+
+Link to the Color Token Demo Website
 
 
-## Open Zeppelin ERC721 Link:
+## Libraries, links and resources
 
-https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol
+[Open Zeppelin ERC-721 Documentation](https://docs.openzeppelin.com/contracts/3.x/erc721)
+
+[Open Zeppelin ERC721 contract](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol) - Import this at the top of your Smart Contract in Remix 
+``` 
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
+```
+[Ethers.js Getting Started Documentation](https://github.com/ethers-io/ethers.js/tree/master/docs/v5/getting-started) - Refer to this if you want to use other ethers.js functions not covered in the videos. This documentation is also useful for ERC20 tokens.
+
+[Ethers.js Library (ethers-5.0.umd.min.js)](https://cdn.ethers.io/lib/ethers-5.0.umd.min.js) - import this at the top of your index.html
+```
+<script src="libraries/ethers-5.0.umd.min.js"></script>
+```
+
+[jQuery Library (jquery-3.5.1.min.js)](https://code.jquery.com/jquery-3.5.1.min.js) - import this at the top of your index.html
+```
+<script src="libraries/jquery-3.5.1.min.js"></script>
+```
+
+## Video tutorials
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GIhH0hb_-Us" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#### Part 1: Setting up GitHub, Writing the ERC-721 Contract in Remix
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/krxTBwjnU1w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#### Part 2: Setting up your files and folders in VS Code
