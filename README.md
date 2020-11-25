@@ -17,12 +17,12 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 ```
 [Ethers.js Getting Started Documentation](https://github.com/ethers-io/ethers.js/tree/master/docs/v5/getting-started) - Refer to this if you want to use other ethers.js functions not covered in the videos. This documentation is also useful for ERC20 tokens.
 
-[Ethers.js Library (ethers-5.0.umd.min.js)](https://cdn.ethers.io/lib/ethers-5.0.umd.min.js) - import this at the top of your index.html
+[Ethers.js Library (ethers-5.0.umd.min.js)](https://cdn.ethers.io/lib/ethers-5.0.umd.min.js) - Download this library, Click the link, then CTRL + S or Command + S to save the file, then drag the files in to the _libraries_ folder in your Color Token Demo repo, then import this at the top of your index.html with the following script tag.
 ```
 <script src="libraries/ethers-5.0.umd.min.js"></script>
 ```
 
-[jQuery Library (jquery-3.5.1.min.js)](https://code.jquery.com/jquery-3.5.1.min.js) - import this at the top of your index.html
+[jQuery Library (jquery-3.5.1.min.js)](https://code.jquery.com/jquery-3.5.1.min.js) - Download this library, Click the link, then CTRL + S or Command + S to save the file, then drag the files in to the _libraries_ folder in your Color Token Demo repo, then import this at the top of your index.html with the following script tag.
 ```
 <script src="libraries/jquery-3.5.1.min.js"></script>
 ```
