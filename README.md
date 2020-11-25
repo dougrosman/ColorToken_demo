@@ -26,12 +26,3 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 ```
 <script src="libraries/jquery-3.5.1.min.js"></script>
 ```
-
-## Video tutorials
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GIhH0hb_-Us" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-#### Part 1: Setting up GitHub, Writing the ERC-721 Contract in Remix
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/krxTBwjnU1w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-#### Part 2: Setting up your files and folders in VS Code
