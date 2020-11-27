@@ -28,9 +28,13 @@ let existingTokens = []; // every single color token that has been minted
 let signerTokens = []; // every color token owned by the signer
 
 
+// Event Listeners
 $('#generate-color').click(async function(){
   await mintColor();
 })
+$('.send-modal__bg').click(closeSendWindow);
+$('.send-modal__close').click(closeSendWindow);
+$('.send-modal__btn').click(sendToken);
 
 main();
 
@@ -38,8 +42,19 @@ async function main() {
   address = await signer.getAddress();
   console.log("Current MetaMask Wallet: " + address);
   $("#address").text(address);
+  await displayOwnedColors(address);
 
-  await displayOwnedColors(address);  
+  window.ethereum.on('accountsChanged', async function(){
+    signerTokens = [];
+
+    $('.color-token').remove();
+
+    signer = provider.getSigner();
+    address = await signer.getAddress();
+    console.log("Current MetaMask Wallet: " + address);
+    $("#address").text(address);
+    await displayOwnedColors(address);
+  })
 }
 
 async function displayOwnedColors(_address) {
@@ -75,6 +90,15 @@ async function displayOwnedColors(_address) {
     $(`#${colorId}`).children('.color-token__tile').css("background", `rgb(${t.r}, ${t.g}, ${t.b})`);
     $(`#${colorId}`).children('.color-token__text').children(".color-token__hex").text(`${rgbToHex(t.r, t.g, t.b)}`);
   }
+
+  $('.color-token').click(function(){
+    let clickedToken = $(".color-token").index($(this));
+    let clickedId = signerTokens[clickedToken];
+    console.log(clickedId);
+
+    $(".send-modal").toggle();
+    $("#token-id").val(`${clickedId}`);
+  })
 }
 
 async function getColorsByOwner(_address, _balance) {
@@ -198,6 +222,58 @@ function checkExisting(_existingTokens) {
 
   console.log("Minted Color: " + myColor);
   return myColor;
+}
+
+function sendToken() {
+  let recipAddress = $('#recipient-address').val();
+  let token = +$('#token-id').val();
+
+  if(verifyTokenId(token) && verifyAddress(recipAddress)) {
+    tokenWithSigner.safeTransferFrom(address, recipAddress, token);
+  }
+}
+
+function verifyAddress(addr) {
+  let addressRegex = /^0x([A-Fa-f0-9]{40})$/;
+  if(addressRegex.test(addr)) {
+    if(addr == address) {
+      $('#recipient-address').css("border", "1px solid #f99");
+      $('#invalid-address').text("Can't send to yourself").show();
+      return false;
+    }
+    $('#recipient-address').css("border", "1px solid #9f9");
+    $('#invalid-address').hide();
+    return true;
+  }
+  // if the address is not valid
+  else {
+    $('#recipient-address').css("border", "1px solid #f99");
+    $('#invalid-address').text("Invalid address").show();
+    return false;
+  }
+}
+
+
+function verifyTokenId(tokenId) {
+  if(signerTokens.indexOf(tokenId) > -1) {
+    $('#token-id').css("border", "1px solid #9f9");
+    $('#invalid-token').hide();
+    return true;
+  } else {
+    $('#token-id').css("border", "1px solid #f99");
+    $('#invalid-token').show();
+    return false;
+  }
+}
+
+function closeSendWindow() {
+  $('.send-modal').hide();
+  $('#token-id').css("border", "none");
+  $('#token-id').css("border-bottom", "1px solid darkgray");
+  $('#recipient-address').css("border", "none");
+  $('#recipient-address').css("border-bottom", "1px solid darkgray");
+  $('#invalid-address').hide();
+  $('#invalid-token').hide();
 }
 
 
