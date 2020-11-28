@@ -2,9 +2,11 @@
 
 This repository contains the code, as well as relevant links for getting your own ERC721 Token up and running.
 
-The Tutorial videos are below, and can also be found on Canvas.
+The Tutorial videos can be found on Canvas.
 
-Link to the Color Token Demo Website
+[Link to the Color Token Demo Website](https://dougrosman.github.io/ColorToken_demo/)
+
+[Download the ContractURI code](https://github.com/dougrosman/ColorToken_demo/raw/main/URITests.zip)
 
 
 ## Libraries, links and resources
